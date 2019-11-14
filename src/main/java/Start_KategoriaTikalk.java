@@ -1,5 +1,6 @@
-import entity.KategoriaTikalk;
+import entity.Kategoria;
 import org.hibernate.Session;
+import utils.HibernateUtil;
 
 import java.util.List;
 
@@ -9,44 +10,44 @@ public class Start_KategoriaTikalk {
         session.beginTransaction();
 
 //        główne
-        KategoriaTikalk root = new KategoriaTikalk();
+        Kategoria root = new Kategoria();
         root.setOpis("root");
 
 //  1 stopień
-        KategoriaTikalk motoryzajca = new KategoriaTikalk();
+        Kategoria motoryzajca = new Kategoria();
         motoryzajca.setOpis("motoryzacja");
 
 //        2.1 stopień
-        KategoriaTikalk osobowe = new KategoriaTikalk();
+        Kategoria osobowe = new Kategoria();
         osobowe.setOpis("osobowe");
 
         //        2.2 stopień
-        KategoriaTikalk ciezarowe = new KategoriaTikalk();
+        Kategoria ciezarowe = new Kategoria();
         ciezarowe.setOpis("ciezarowe");
 
 
         //  3.1 stopień -sobowe
-        KategoriaTikalk mercedes = new KategoriaTikalk();
+        Kategoria mercedes = new Kategoria();
         mercedes.setOpis("mercedes");
 
         //  3.2 stopień -sobowe
-        KategoriaTikalk bmw = new KategoriaTikalk();
+        Kategoria bmw = new Kategoria();
         bmw.setOpis("bmw");
 //      3.3 stopień - ciężarowe
 
-        KategoriaTikalk man = new KategoriaTikalk();
+        Kategoria man = new Kategoria();
         man.setOpis("Ciezarowy MAN");
 
 //        ustawiamy zależności drzewa
-        List<KategoriaTikalk> rootChildren = root.getChildren();
+        List<Kategoria> rootChildren = root.getChildren();
         rootChildren.add(motoryzajca);
 
-        List<KategoriaTikalk> motoryzacjaChildren = motoryzajca.getChildren();
+        List<Kategoria> motoryzacjaChildren = motoryzajca.getChildren();
         motoryzacjaChildren.add(osobowe);
         motoryzacjaChildren.add(ciezarowe);
         motoryzajca.setParent(root);
 
-        List<KategoriaTikalk> osoboweChildren = osobowe.getChildren();
+        List<Kategoria> osoboweChildren = osobowe.getChildren();
         osoboweChildren.add(mercedes);
         osoboweChildren.add(bmw);
         osobowe.setParent(motoryzajca);
@@ -54,7 +55,7 @@ public class Start_KategoriaTikalk {
         mercedes.setParent(osobowe);
         bmw.setParent(osobowe);
 
-        List<KategoriaTikalk> ciezaroweChildren = ciezarowe.getChildren();
+        List<Kategoria> ciezaroweChildren = ciezarowe.getChildren();
         ciezaroweChildren.add(man);
         ciezarowe.setParent(motoryzajca);
 

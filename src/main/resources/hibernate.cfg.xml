@@ -9,19 +9,15 @@
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL55Dialect</property>
-<!--                <property name="hibernate.hbm2ddl.auto">create-drop</property>-->
-                <property name="hibernate.hbm2ddl.auto">create</property>
+                <property name="hibernate.hbm2ddl.auto">create-drop</property>
+<!--                <property name="hibernate.hbm2ddl.auto">create</property>-->
         <mapping class="entity.Adres"/>
         <mapping class="entity.Kategoria"/>
         <mapping class="entity.Uzytkownik"/>
         <mapping class="entity.Produkt"/>
-        <mapping class="entity.KategoriaTikalk"/>
-        <!--        <mapping class="sda.hibernate.entity.przyklad2.Samochod2"/>-->
-        <!--        <mapping class="sda.hibernate.entity.przyklad3.Produkt3"/>-->
-        <!--        <mapping class="sda.hibernate.entity.przyklad3.Telefon3"/>-->
-        <!--        <mapping class="sda.hibernate.entity.przyklad3.Samochod3"/>-->
-        <!--        <mapping class="sda.hibernate.entity.przyklad4.Produkt4"/>-->
-        <!--        <mapping class="sda.hibernate.entity.przyklad4.Telefon4"/>-->
+        <mapping class="entity.LiniaZamowienia"/>
+        <mapping class="entity.Koszyk"/>
+        <mapping class="entity.Zamowienie"/>
         <!--        <mapping class="sda.hibernate.entity.przyklad4.Samochod4"/>-->
     </session-factory>
 </hibernate-configuration>
